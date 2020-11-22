@@ -1,0 +1,23 @@
+
+이거먼저 https://diy-project.tistory.com/88
+
+oss key 받아놈
+
+export GOOGLE_APPLICATION_CREDENTIALS="key위치"
+#환경변수 설정
+
+git clone https://github.com/googleapis/python-speech.git
+
+cd sampls
+cd microphone
+
+pip install virtualenv env
+
+virtualenv env/bin/activate
+#비활성화시 deactivate
+
+pip3 install -r requirements.txt
+
+python3 transcribe_streaming_mic.py
+
+python3 transcribe_streaming_infinite.py
