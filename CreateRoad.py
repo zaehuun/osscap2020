@@ -77,15 +77,15 @@ def LWid1(NowRoad):         #왼쪽 길이 한칸 늘어남
 def RptRoad(NowRoad,CR,n):  #한가지 함수를 n번 반복
     for i in range(n):
         CR(NowRoad)
-        LookGood(NowRoad)   #출력 함수 변경 하기
+   #출력 함수 변경 하기
 
 def DRptRoad(NowRoad,CR1,CR2,n):    #두가지 함수를 n번 번갈아가며 반복
     for i in range(n):
         CR1(NowRoad)
-        LookGood(NowRoad)
+        
         CR2(NowRoad)
-        LookGood(NowRoad)
-
+  #      LookGood(NowRoad)
+'''
 def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
     a=[]
     for i in range(24):
@@ -95,7 +95,7 @@ def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
             a.append("□")
     print(a)
 
-
+'''
 ### 출력 예시
 
 NowRoad=BaseRoad
