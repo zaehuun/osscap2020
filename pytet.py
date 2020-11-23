@@ -1,3 +1,4 @@
+
 from matrix import *
 import LED_display as LMD
 import threading
@@ -104,7 +105,6 @@ def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
         else:
             a.append("□")
     print(a)
-
 '''
 ### 출력 예시
 
@@ -164,7 +164,7 @@ def draw_matrix(m):
                 LMD.set_pixel(y, 19-x, 1)
             elif array[y][x] == 7:
                 LMD.set_pixel(y, 19-x, 7)
-            elif array[y][x] == 9:
+            elif array[y][x] == 5:
                 LMD.set_pixel(y, 19-x, 5)
             else:
                 continue
@@ -301,7 +301,7 @@ while True:
         f1=Nt.index(0)
         e1=Nt[f1+1:].index(10)+f1+1
         tmp = copy.deepcopy(NowRoad)
-        tmp[f1+(e1-f1)//2+4] = 9
+        tmp[f1+(e1-f1)//2+4] = 5
         road.append(tmp)
         
            
@@ -311,11 +311,12 @@ while True:
         print("crush")
         print("score : ", time.time() - st)
         break
-
-
-        tempBlk = iScreen.clip(top, left, top+currBlk.get_dy(), left+currBlk.get_dx())
-        tempBlk = tempBlk + currBlk
-
+    
+    if tempBlk.getItem(6):
+        item_idx = road[idx-1].index(5)
+        tempBlk[idx][item_idx] = 0
+        print("get Item")
+        
     arrayScreen.pop(0)
     arrayScreen.append(road[idx])
 
