@@ -96,6 +96,17 @@ def DRptRoad(CR1,CR2,n):    #두가지 함수를 n번 번갈아가며 반복
         road.append(copy.deepcopy(CR2()))
   #      LookGood(NowRoad)
 
+def MakeP():
+        Nt=NowRoad[4:20]
+        f1=Nt.index(0)
+        e1=Nt[f1+1:].index(10)+f1+1
+        
+        tmp = copy.deepcopy(NowRoad)
+        #tmp[f1+(e1-f1)//2+4] = 5
+        tmp[random.randint(f1+4,e1+4)] = 5
+        road.append(tmp)
+
+
 '''
 def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
     a=[]
@@ -287,23 +298,23 @@ while True:
         DRptRoad(NR,R1,5)
     elif rand == 2:
         RptRoad(RNar1,3)
-        DRptRoad(NR,R1,10)
-        DRptRoad(NR,L1,10)
-        DRptRoad(NR,R1,3)
-        RptRoad(RWid1,3)
+        DRptRoad(NR,R1,6)
+        DRptRoad(NR,L1,6)
     elif rand == 3:
         RptRoad(RWid1,5)
         RptRoad(RNar1,5)
     elif rand == 4:
         flag = True
         print("item")
+        MakeP()
+        '''
         Nt=NowRoad[4:20]
         f1=Nt.index(0)
         e1=Nt[f1+1:].index(10)+f1+1
         tmp = copy.deepcopy(NowRoad)
         tmp[f1+(e1-f1)//2+4] = 5
         road.append(tmp)
-        
+        '''
            
     tempBlk = iScreen.clip(top, left, top+currBlk.get_dy(), left+currBlk.get_dx())
     tempBlk = tempBlk + currBlk
