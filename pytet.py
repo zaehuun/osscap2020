@@ -6,6 +6,8 @@ import random
 import keyboard #sudo pip3 install keyboard
 import time
 import copy
+import os
+
 
 
 NowRoad=[10,10,10,10,10,10,10,10,0,0,0,0,0,0,0,0,10,10,10,10,10,10,10,10]
@@ -103,20 +105,11 @@ def MakeP():
         
         tmp = copy.deepcopy(NowRoad)
         #tmp[f1+(e1-f1)//2+4] = 5
-        tmp[random.randint(f1+4,e1+4)] = 5
+        tmp[random.randint(f1+4,e1+3)] = 5
         road.append(tmp)
 
 
-'''
-def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
-    a=[]
-    for i in range(24):
-        if NowRoad[i]==10:
-            a.append("■")
-        else:
-            a.append("□")
-    print(a)
-'''
+
 ### 출력 예시
 
 
@@ -125,12 +118,6 @@ def LookGood(NowRoad):      #화면에서 잘 보이게 하는 용도
 road = []
 
 
-
-RptRoad(R1,3)
-RptRoad(L1,3)
-RptRoad(RNar1,5)
-RptRoad(RWid1,5)
-print(len(road))
 class Key :
 
     def __init__(self) :
@@ -159,14 +146,26 @@ def LED_init():
 #핑 5
 #민 6
 #흰 7
+score = 0
 def draw_matrix(m):
+    global score
+    
     array = m.get_array()
     for y in range(m.get_dy()-4):
         for x in range(4, m.get_dx()-4):
             if array[y][x] == 0:
                 LMD.set_pixel(y, 19-x, 0)
             elif array[y][x] == 10:
-                LMD.set_pixel(y, 19-x, 4)
+                if score < 10:
+                    LMD.set_pixel(y, 19-x, 2)
+                elif score < 20:
+                    LMD.set_pixel(y, 19-x, 6)
+                elif score < 30:
+                    LMD.set_pixel(y, 19-x, 4)
+                elif score < 40:
+                    LMD.set_pixel(y, 19-x, 3)
+                else:
+                    LMD.set_pixel(y, 19-x, 7)
             elif array[y][x] == 2:
                 LMD.set_pixel(y, 19-x, 2)
             elif array[y][x] == 3:
@@ -259,10 +258,16 @@ while cnt:
 ### execute the loop
 ###
 st = time.time()
+
 K = Key()
 idx = 0
 flag = False
+realscore = 0
+cntp = 0
 while True:
+    print("time :",time.time() - st)
+    print("score : ", realscore)
+    
     K.key = ''
     time.sleep(0.1) 
     keyboard.hook(K.key_input)
@@ -280,62 +285,58 @@ while True:
     elif K.key == 'd': # move right
         left -= 1
     
-    if rand == 0:
-        '''
-        RptRoad(L1,3)
-        RptRoad(R1,3)
-        RptRoad(RNar1,5)
-        RptRoad(RWid1,5)'''
-        DRptRoad(NR,R1,3)
-        DRptRoad(NR,L1,3)
-    elif rand == 1:
-        '''
-        RptRoad(R1,3)
-        RptRoad(L1,3)
-        RptRoad(R1,3)
-        RptRoad(L1,3)'''
-        DRptRoad(NR,L1,5)
-        DRptRoad(NR,R1,5)
-    elif rand == 2:
-        RptRoad(RNar1,3)
-        DRptRoad(NR,R1,6)
-        DRptRoad(NR,L1,6)
-    elif rand == 3:
-        RptRoad(RWid1,5)
-        RptRoad(RNar1,5)
-    elif rand == 4:
-        flag = True
-        print("item")
-        MakeP()
-        '''
-        Nt=NowRoad[4:20]
-        f1=Nt.index(0)
-        e1=Nt[f1+1:].index(10)+f1+1
-        tmp = copy.deepcopy(NowRoad)
-        tmp[f1+(e1-f1)//2+4] = 5
-        road.append(tmp)
-        '''
+    if len(road) < 5:
+        if rand == 0:
+            DRptRoad(NR,R1,3)
+            DRptRoad(NR,L1,3)
+        elif rand == 1:
+
+            DRptRoad(NR,L1,5)
+            DRptRoad(NR,R1,5)
+
+        elif rand == 2:
+            RptRoad(RNar1,3)
+            DRptRoad(NR,R1,6)
+            DRptRoad(NR,L1,6)
+        elif rand == 3:
+            RptRoad(RWid1,5)
+            RptRoad(RNar1,5)
+        elif rand == 4:
+            flag = True
+            #print("item")
+            MakeP()
            
     tempBlk = iScreen.clip(top, left, top+currBlk.get_dy(), left+currBlk.get_dx())
     tempBlk = tempBlk + currBlk
+
     if tempBlk.anyGreaterThan(10):
         print("crush")
-        print("score : ", time.time() - st)
+        print("score : ", realscore + cntp * 50)
         break
     
     if tempBlk.getItem(6):
-        item_idx = road[idx-1].index(5)
-        tempBlk[idx][item_idx] = 0
-        print("get Item")
+        cntp += 1
+        for i in range(3,6):
+            for j in range(24):
+                if arrayScreen[i][j] == 5:
+                    arrayScreen[i][j] = 0
+                    break
+            
+
+                
         
     arrayScreen.pop(0)
-    arrayScreen.append(road[idx])
+    #arrayScreen.append(road[idx])
+    arrayScreen.append(road.pop(0))
 
     
     
-    idx += 1
-    if idx >= len(road):
-        idx = 0
+    #idx += 1
+    #if idx >= len(road):
+    #    idx = 0
+    
+    score = time.time() - st
+    realscore = (time.time()-st) * 10
     iScreen = Matrix(arrayScreen)
     oScreen = Matrix(iScreen)
     currBlk = Matrix(arrayBlk)
@@ -343,7 +344,7 @@ while True:
     tempBlk = tempBlk + currBlk
     oScreen.paste(tempBlk, top, left)
     draw_matrix(oScreen); 
-
+    os.system('clear')
     
         
 ###

@@ -109,15 +109,18 @@ class Matrix:
             for x in range(self._dx):
                 self._array[y][x] *= coef
 
+
     def anyGreaterThan(self, val):
         for y in range(self._dy):
             temp = [v for v in self._array[y] if v > val]
             if len(temp) > 0:
                 return True
         return False
+    
     def getItem(self, val):
         for y in range(self._dy):
             temp = [v for v in self._array[y] if v == val]
+            
             if len(temp) > 0:
                 return True
         return False
