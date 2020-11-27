@@ -9,7 +9,6 @@ import copy
 import os
 
 
-#모든 방향은 LED Matrix 출력 기준임(좌우가 바꿔어 있음)
 
 def NR():
     return NowRoad
@@ -224,12 +223,12 @@ def WhenCrush():
 arrayScreen = [[ 10, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 10, 10, 10, 10 ]] * 36
 NList=[4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 NowRoad=[10,10,10,10,10,10,10,10,0,0,0,0,0,0,0,0,10,10,10,10,10,10,10,10]
-#def main(a):
-
-    
-def main1(direct):
+def main():
     global left, top, NowRoad
     
+    
+
+
     iScreen = Matrix(arrayScreen)
     oScreen = Matrix(iScreen)
     currBlk = Matrix(arrayBlk)
@@ -257,6 +256,7 @@ def main1(direct):
 ###
     st = time.time()
 
+    K = Key()
     idx = 0
     flag = False
     realscore = 0
@@ -264,21 +264,22 @@ def main1(direct):
     while True:
         print("time :",time.time() - st)
         print("score : ", realscore)
-        print(direct)
-
+    
+        K.key = ''
         time.sleep(0.1) 
- 
+        keyboard.hook(K.key_input)
+    
         rand = random.randint(0,4)
         if flag:
             rand = random.randint(0,3)
             flag = False
         
-        if direct == 'a':
+        if K.key == 'q':
             print('Game terminated...')
             break
-        elif direct == 'left': # move left
+        elif K.key == 'a': # move left
             left += 1
-        elif direct == 'right': # move right
+        elif K.key == 'd': # move right
             left -= 1
     
         if len(road) < 5:
@@ -341,7 +342,10 @@ def main1(direct):
         tempBlk = tempBlk + currBlk
         oScreen.paste(tempBlk, top, left)
         draw_matrix(oScreen); 
-        os.system('clear') 
+        os.system('clear')
+    
+def main1():
+    main() 
         
 
 ### end of the loop
