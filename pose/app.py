@@ -7,12 +7,15 @@ app = Flask(__name__, static_url_path='/static')
 def home(): 
     return render_template('tm.html')
 
+@app.route("/center") 
+def center(): 
+    return render_template('tm.html')
 
 @app.route("/right") 
 def right(): 
     return render_template('tm.html')
 
-@app.route("left") 
+@app.route("/left") 
 def left(): 
     return render_template('tm.html')
 
