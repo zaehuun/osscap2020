@@ -528,8 +528,7 @@ def listen_print_loop(responses, stream):
                 break
             elif re.search(r"\b(키보드|키 보 드)\b", transcript, re.I) :
                 os.system('sudo python3 keytet.py')
-            elif re.search(r"\b(마이크|마 이 크)\b", transcript, re.I) :
-                os.system('python3 mictet.py')
+
 
         else:
             sys.stdout.write(RED)
