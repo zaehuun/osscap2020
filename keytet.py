@@ -50,7 +50,7 @@ def LNar1():         #왼쪽 길이 한칸 줄어듬
     Nl=NowRoad[4:20]
     f1=Nl.index(0)
     e1=Nl[f1+1:].index(10)+f1+1
-    if (e1-f1)<=5:          #길 사이가 두칸 이내라면 실행X
+    if (e1-f1)<=5:          #길 사이가 5칸 이내라면 실행X
         return NowRoad
     for i in reversed(NList):
         if NowRoad[i]==0:
@@ -61,7 +61,7 @@ def RNar1():         #오른쪽 길이 한칸 줄어듬
     Nl=NowRoad[4:20]
     f1=Nl.index(0)
     e1=Nl[f1+1:].index(10)+f1+1
-    if (e1-f1)<=5:          #길 사이가 두칸 이내라면 실행X
+    if (e1-f1)<=5:          #길 사이가 5칸 이내라면 실행X
         return NowRoad
     for i in NList:
         if NowRoad[i]==0:
@@ -96,7 +96,7 @@ def DRptRoad(CR1,CR2,n):    #두가지 함수를 n번 번갈아가며 반복
         road.append(copy.deepcopy(CR1()))
         
         road.append(copy.deepcopy(CR2()))
-  #      LookGood(NowRoad)
+
 
 def MakeP():
         Nt=NowRoad[4:20]
@@ -202,8 +202,22 @@ def WhenCrush():
         iCarray=Matrix(Carray)
         oCarray=Matrix(iCarray)
         draw_matrix(oCarray)
-        time.sleep(0.5)
+        time.sleep(times())
 
+
+
+
+def times():
+    if score < 10:
+        return 0.2
+    elif score <20:
+        return 0.15
+    elif score <30:
+        return 0.1
+    elif score <40:
+        return 0.07
+    else:
+        return 0.05
 ###
 ### initialize variables
 ###     
@@ -292,7 +306,7 @@ while True:
     print("score : ", realscore)
     
     K.key = ''
-    time.sleep(0.1) 
+    time.sleep(times()) 
     keyboard.hook(K.key_input)
     
     rand = random.randint(0,4)
@@ -309,26 +323,33 @@ while True:
         left -= 1
     
     if len(road) < 5:
+
+        
         if rand == 0:
-            DRptRoad(NR,R1,3)
-            DRptRoad(NR,L1,3)
-        elif rand == 1:
-
-            DRptRoad(NR,L1,5)
-            DRptRoad(NR,R1,5)
-
-        elif rand == 2:
             RptRoad(RNar1,3)
+            DRptRoad(NR,R1,4)
+            DRptRoad(NR,L1,7)
+        elif rand == 1:
+            RptRoad(LNar1,3)
+            DRptRoad(NR,L1,3)
             DRptRoad(NR,R1,6)
-            DRptRoad(NR,L1,6)
+        elif rand == 2:
+            DRptRoad(NR,R1,5)
+            DRptRoad(NR,L1,5)
         elif rand == 3:
             RptRoad(RWid1,5)
-            RptRoad(RNar1,5)
+            RptRoad(LNar1,3)
         elif rand == 4:
+            RptRoad(LWid1,4)
+            RptRoad(RNar1,2)
+
+
+        elif rand == 5:
             flag = True
             #print("item")
             MakeP()
-           
+
+
     tempBlk = iScreen.clip(top, left, top+currBlk.get_dy(), left+currBlk.get_dx())
     tempBlk = tempBlk + currBlk
 
@@ -337,7 +358,8 @@ while True:
         print("score : ", realscore + cntp * 50)
         WhenCrush()
         break
-    
+
+
     if tempBlk.getItem(6):
         cntp += 1
         for i in range(3,6):
