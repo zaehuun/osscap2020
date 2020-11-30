@@ -92,12 +92,12 @@ python3 transcribe_streaming_infinite.py
 
 ```
 <p float="left">
-  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602280-084eab00-3347-11eb-985f-142ff95bdfca.png"> 
-  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602641-8317c600-3347-11eb-9128-3cb0a086678c.png">
-  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602726-a3e01b80-3347-11eb-9db8-43100806752d.png">
+  <img width="280" src="https://user-images.githubusercontent.com/72431775/100602280-084eab00-3347-11eb-985f-142ff95bdfca.png"> 
+  <img width="280" src="https://user-images.githubusercontent.com/72431775/100602641-8317c600-3347-11eb-9128-3cb0a086678c.png">
+  <img width="280" src="https://user-images.githubusercontent.com/72431775/100602726-a3e01b80-3347-11eb-9db8-43100806752d.png">
 </p>
   
-   **가만히! (Class1: 0.95이상 일 때)____________좌측으로 이동! (Class2: 0.95이상 일 때)______우측으로 이동! (Class3: 0.95이상 일 때)**
+   **가만히! (Class1: 0.95이상 일 때)____________좌측으로 이동! (Class2: 0.95이상 일 때)____우측으로 이동! (Class3: 0.95이상 일 때)**
 
 
 - "끝" 이라고 말했을 때
