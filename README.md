@@ -57,9 +57,16 @@ sudo pip3 install keyboard
    
 ## How to Start
 ```
-git clone https://github.com/zaehuun/osscap2020.git
+git clone https://github.com/zaehuun/osscap2020.git && cd osscap2020
 ```
 ```
 python3 transcribe_streaming_infinite.py
 ```
+- "키보드" 라고 말했을 때
+
+
+- "포즈" 라고 말했을 때
+
+
+- "끝" 이라고 말했을 때
 
