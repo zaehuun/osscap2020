@@ -62,7 +62,13 @@ git clone https://github.com/zaehuun/osscap2020.git && cd osscap2020
 ```
 python3 transcribe_streaming_infinite.py
 ```
-- "키보드" 라고 말했을 때
+- "키보드" 라고 말했을 때   
+```
+방향키 조작 : a - 좌로 이동, d - 우로 이동, q - 게임 종료
+랜덤으로 생성되는 길을 방향키로 조작하여 피하며 진행
+아이템 획득 시 추가 점수를 획득하며 실시간으로 터미널 창을 통해 점수 확인 가능
+충돌 시 LED Matrix가 꺼지며 터미널 창을 통해 최종 스코어 확인 가능
+```
 
 
 - "포즈" 라고 말했을 때
