@@ -54,3 +54,12 @@ sudo pip3 install flask
 ```
 sudo pip3 install keyboard
 ```
+   
+## How to Start
+```
+git clone https://github.com/zaehuun/osscap2020.git
+```
+```
+python3 transcribe_streaming_infinite.py
+```
+
