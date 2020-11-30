@@ -2,9 +2,12 @@
 오픈소스 기초설계 (나)반 1조
 
 ## Open Souce
-[Teachable Machine](https://teachablemachine.withgoogle.com/)
+동작 인식 : [Teachable Machine](https://teachablemachine.withgoogle.com/)
   
-[Google STT](https://cloud.google.com/speech-to-text/docs/?hl=ko)
+음성 인식 : [Google STT](https://cloud.google.com/speech-to-text/docs/?hl=ko)
+
+웹 서버 : [Flask](https://flask-docs-kr.readthedocs.io/ko/latest/)
+
 
 ## Install
  
