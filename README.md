@@ -1,3 +1,5 @@
+
+
 # 오픈소스 기초설계 (나)반 1조 
 
 
@@ -80,9 +82,19 @@ python3 transcribe_streaming_infinite.py
 1. 크롬 실행 후 http://localhost:5000/ 로 접속
 2. start를 클릭 후 웹 캠 접근 권한 창이 뜨면 수락 버튼 클릭하여 웹 캠 화면 확인
 3. 웹 캠을 통해 자세 교정 (※ 어깨 라인까지만 나오도록 학습하였기에 어깨선 아래로 상체가 보이면 인식에 어려움 있음.)
-4. 
+4. 각 동작 별 인식 값 확인 (하단 이미지 참고)
+5. 인식이 제대로 되면 Ctrl + C를 입력하여 레이싱 게임 종료 후 다시 "포즈" 라고 말한 뒤 레이싱 게임 진행
+6. 게임 진행 과정은 키보드 버전 레이싱 게임과 같음
+7. 종료 되면 Ctrl + C를 눌러 서버 종료 후 STT로 
 
 ```
+<p float="left">
+  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602280-084eab00-3347-11eb-985f-142ff95bdfca.png"> 
+  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602641-8317c600-3347-11eb-9128-3cb0a086678c.png">
+  <img width="300" src="https://user-images.githubusercontent.com/72431775/100602726-a3e01b80-3347-11eb-9db8-43100806752d.png">
+</p>
+  
+   **가만히! (Class1: 0.95이상 일 때)____________좌측으로 이동! (Class2: 0.95이상 일 때)______우측으로 이동! (Class3: 0.95이상 일 때)**
 
 
 - "끝" 이라고 말했을 때
