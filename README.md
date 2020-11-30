@@ -62,6 +62,9 @@ sudo pip3 install keyboard
 git clone https://github.com/zaehuun/osscap2020.git && cd osscap2020
 ```
 ```
+cd final
+```
+```
 python3 transcribe_streaming_infinite.py
 ```
 - "키보드" 라고 말했을 때   
