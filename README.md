@@ -19,7 +19,7 @@ LED Matrix 연결 및 라즈베리파이 상 구동 환경 세팅
 아이템 랜덤 생성 코드 작성   
 메모리 관리를 위해 랜덤으로 생성하는 길의 개수를 제한하는 코드 작업   
  
-- **[고재원](https://github.com/jaewon1778)**
+- **[고재원](https://github.com/jaewon1778)(팀원)**
 > 음성 인식을 위한 Google STT 오픈 소스 조사 및 구현   
 Google STT를 통한 메인 실행 파일 통합 작업 진행
 시간에 따른 레이싱 게임 속도 변화 코드 작성
@@ -32,6 +32,8 @@ Google STT를 통한 메인 실행 파일 통합 작업 진행
  
 
 ## Open Souce
+LED Matrix 출력을 위한 오픈 소스 : [LED Matrix](https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code)
+   
 목 운동 인식을 위한 오픈 소스 : [Teachable Machine](https://teachablemachine.withgoogle.com/)
   
 음성 인식을 위한 오픈 소스 : [Google STT](https://cloud.google.com/speech-to-text/docs/?hl=ko)
