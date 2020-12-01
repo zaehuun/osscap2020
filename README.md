@@ -105,3 +105,6 @@ python3 transcribe_streaming_infinite.py
 메인 실행 파일이 종료되며 실행 종료
 ```
 
+
+## 시연 영상
+https://www.youtube.com/watch?v=BI7POzgvXPE&feature=youtu.be
