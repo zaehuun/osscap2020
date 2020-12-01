@@ -56,17 +56,6 @@ sudo pip3 install flask
 ```
 sudo pip3 install keyboard
 ```
-   
-## How to Start
-```
-git clone https://github.com/zaehuun/osscap2020.git && cd osscap2020
-```
-```
-cd final
-```
-```
-python3 transcribe_streaming_infinite.py
-```
 ```
 ※구글 STT 설정법
 https://diy-project.tistory.com/88
@@ -83,6 +72,18 @@ cd microphone
 
 pip3 install -r requirements.txt
 ```
+   
+## How to Start
+```
+git clone https://github.com/zaehuun/osscap2020.git && cd osscap2020
+```
+```
+cd final
+```
+```
+python3 transcribe_streaming_infinite.py
+```
+
 - "키보드" 라고 말했을 때   
 ```
 ※ 방향키로 조절하는 레이싱 게임 실행
