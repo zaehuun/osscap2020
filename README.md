@@ -67,6 +67,22 @@ cd final
 ```
 python3 transcribe_streaming_infinite.py
 ```
+```
+※구글 STT 설정법
+https://diy-project.tistory.com/88
+위 사이트를 참조하여 마이크를 설정합니다.
+
+export GOOGLE_APPLICATION_CREDENTIALS="key위치"
+#환경변수 설정
+
+git clone https://github.com/googleapis/python-speech.git
+
+cd sampls
+
+cd microphone
+
+pip3 install -r requirements.txt
+```
 - "키보드" 라고 말했을 때   
 ```
 ※ 방향키로 조절하는 레이싱 게임 실행
