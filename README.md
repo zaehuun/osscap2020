@@ -66,7 +66,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="key위치"
 
 git clone https://github.com/googleapis/python-speech.git
 
-cd sampls
+cd samples
 
 cd microphone
 
