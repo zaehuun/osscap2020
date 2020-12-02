@@ -61,6 +61,9 @@ sudo pip3 install keyboard
 https://diy-project.tistory.com/88
 위 사이트를 참조하여 마이크를 설정합니다.
 
+https://blog.naver.com/rose1216_/221319294390
+위 사이트를 참조하여 google stt 설치
+
 export GOOGLE_APPLICATION_CREDENTIALS="key위치"
 #환경변수 설정
 
